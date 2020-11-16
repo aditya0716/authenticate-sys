@@ -1,0 +1,29 @@
+<!-- Header Page -->
+<div class="flex-r">
+   <div> <h1>Authenticate</h1></div>
+    <div class="flex-r widthmain">
+        <!-- If a user is present than current title is home then show reset passowrd else show home in header along with signout -->
+        <% if(locals.user){ %>
+        <span><i class="fas fa-user-alt"></i>&nbsp&nbsp&nbsp<%=user.name%></span>
+            <% if(title== 'Authenticate | Home' ){ %>
+                <span><a href="/resetPassword">Reset Password</a></span>
+            <% } else { %>
+                <span><a href="/">Home</a></span>
+            <% } %>
+        <span><a href="/signout">SignOut</a></span>
+        <% } else{ %>
+            <!-- If a user is not present in locals and title is sign in then show signup else signin along with link to home -->
+            <% if(title== 'Authenticate | User-SignIn' ){ %>
+                <span><a href="/signup">Sign up</a></span>
+                <span><a href="/">Home</a></span>
+            <% } else { %>
+                <span><a href="/signin">Sign In</a></span>
+                <% if(title== 'Authenticate | Home' ){ %>
+                    <span><a href="/signup">Sign up</a></span>
+                <% } else { %>
+                    <span><a href="/">Home</a></span>
+                <% } %>
+            <% } %>
+        <% } %>
+    </div>
+</div>

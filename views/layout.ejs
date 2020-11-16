@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+        <link rel="stylesheet" href="main.css">
+        <%- style %>
+    </head>
+    <body>
+        <!-- includes the header and common through the layout -->
+        <%- include('_header') %> 
+        <!-- Includes body that is different ejs req -->
+        <div class="layoutBody">
+            <%- body %>
+        </div>
+        <!-- includes the footer and common through the layout -->
+        <%- include('_footer') %>
+        <script>
+            // set up noty to display the messages in flash
+            <% if(flash.success && flash.success.length > 0) { %>
+               new Noty({
+                   theme:'relax',
+                   text:"<%= flash.success %>",
+                   type :'success',
+                   layout:'topRight',
+                   timeout:1000,
+               }).show(); 
+            <% } %>
+            <%if(flash.error && flash.error.length > 0) { %>
+               new Noty({
+                   theme:'relax',
+                   text:"<%=flash.error%>",
+                   type:'error',
+                   layout:'topRight',
+                   timeout:1000,
+               }).show(); 
+            <% } %>
+        </script>
+    </body>
+</html>

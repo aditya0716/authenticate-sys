@@ -1,0 +1,32 @@
+<!-- Form Containg link and method for reset password -->
+<h1> Reset Your Password </h1>
+
+<div class="enclosing">
+<div class="container-fluid" id="main">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <form action="/resetPassword/reset" method="POST">
+                <div class="form-group">
+                  <label for="email">Enter Your Current Password</label>
+                  <input type="password" class="form-control" name="oldpassword" aria-describedby="emailHelp" required>
+                </div>
+                <div class="form-group">
+                  <small><a href="/forgotPassword">Don't Remember The Current Password | Send OTP ?</a></small>
+                </div>
+                <div class="form-group">
+                  <label for="password">Enter Your New Password</label>
+                  <input type="password" class="form-control" name="newpassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Re-Enter Your New Password</label>
+                    <input type="password" class="form-control" name="renewpassword" required>
+                  </div>
+                <button type="submit" class="btn btn-primary">Reset</button>
+            </form>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    </div>
+</div>
+</div>
